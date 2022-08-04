@@ -15,6 +15,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //todo:3
+  @override
+  void initState() {
+    BlocProvider.of<NoteCubit>(context).getNotes(uid: widget.uid);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

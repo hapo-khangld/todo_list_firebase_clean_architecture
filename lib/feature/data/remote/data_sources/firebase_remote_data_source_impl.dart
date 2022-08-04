@@ -20,7 +20,8 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
 
     noteCollectionRef.doc(noteId).get().then((note) {
       final newNote = NoteModel(
-        noteEntity.noteId,
+        //todo:1
+        noteId,
         noteEntity.note,
         noteEntity.time,
         noteEntity.uid,
@@ -42,6 +43,8 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
       if (note.exists) {
         noteCollectionRef.doc(noteEntity.noteId).delete();
       }
+      //todo: 2
+      return;
     });
   }
 
@@ -80,9 +83,7 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
   }
 
   @override
-  Future<bool> isSignIn() async {
-    return auth.currentUser?.uid != null;
-  }
+  Future<bool> isSignIn() async => auth.currentUser?.uid != null;
 
   @override
   Future<void> signIn(UserEntity user) async => auth.signInWithEmailAndPassword(
@@ -94,10 +95,9 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
   }
 
   @override
-  Future<void> signUp(UserEntity user) async {
-    auth.createUserWithEmailAndPassword(
-        email: user.email!, password: user.password!);
-  }
+  Future<void> signUp(UserEntity user) async =>
+      auth.createUserWithEmailAndPassword(
+          email: user.email!, password: user.password!);
 
   @override
   Future<void> updateNote(NoteEntity note) async {
