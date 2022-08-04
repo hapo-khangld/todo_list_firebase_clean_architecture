@@ -1,10 +1,10 @@
 import 'package:todo_firebase/feature/domain/entities/note_entity.dart';
 import 'package:todo_firebase/feature/domain/repositories/firebase_repository.dart';
 
-class AddNewTaskUseCase {
+class AddNewNoteUseCase {
   final FirebaseRepository repository;
 
-  AddNewTaskUseCase({
+  AddNewNoteUseCase({
     required this.repository,
   });
 
