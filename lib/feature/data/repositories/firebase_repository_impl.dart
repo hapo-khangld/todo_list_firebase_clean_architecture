@@ -23,9 +23,7 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
   }
 
   @override
-  Future<String> getCurrentUid() async {
-    return remoteDataSource.getCurrentUid();
-  }
+  Future<String> getCurrentUid() async => remoteDataSource.getCurrentUid();
 
   @override
   Stream<List<NoteEntity>> getNotes(String uid) {

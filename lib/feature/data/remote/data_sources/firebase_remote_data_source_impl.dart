@@ -65,9 +65,7 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
   }
 
   @override
-  Future<String> getCurrentUid() async {
-    return auth.currentUser!.uid;
-  }
+  Future<String> getCurrentUid() async => auth.currentUser!.uid;
 
   @override
   Stream<List<NoteEntity>> getNotes(String uid) {
